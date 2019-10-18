@@ -23,6 +23,20 @@
 ;;(add-hook 'python-mode-hook #'lsp)
 ;;(setq lsp-enable-snippet nil)
 
+(add-hook 'c-mode-hook 'hs-minor-mode)
+(add-hook 'c++-mode-hook 'hs-minor-mode)
+(add-hook 'c-mode-hook
+	  (lambda ()
+	    (local-set-key (kbd "C-c [") 'hs-hide-block)
+	    (local-set-key (kbd "C-c ]") 'hs-show-block)
+	    (local-set-key (kbd "C-c {") 'hs-hide-all)
+	    (local-set-key (kbd "C-c }") 'hs-show-all)))
+(add-hook 'c++-mode-hook
+	  (lambda ()
+	    (local-set-key (kbd "C-c [") 'hs-hide-block)
+	    (local-set-key (kbd "C-c ]") 'hs-show-block)
+	    (local-set-key (kbd "C-c {") 'hs-hide-all)
+	    (local-set-key (kbd "C-c }") 'hs-show-all)))
 
 (use-package lsp-mode
   :commands lsp
